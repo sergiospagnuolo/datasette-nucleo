@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+
+{% block title %}{{ database }}{% if query and query.sql %}: {{ query.sql }}{% endif %}{% endblock %}
+
+{% block extra_head %}
+{{ super() }}
+{% include "_codemirror.html" %}
+{% endblock %}
+
+{% block body_class %}query db-{{ database|to_css_class }}{% endblock %}
+
+{% block nav %}
+    <p class="bases">
+        <a href="/">home</a> /
+        <a href="{{ database_url(database) }}">{{ database }}</a>
+    </p>
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+<img class="img-database" src="https://nucleo.jor.br/img/landing-nucleo_logo-justo.png">
+
+<div class="bases">
+    <h1 class="query-title">{{ metadata.title or database }}</h1>
+
+    {% block description_source_license %}{% include "_description_source_license.html" %}{% endblock %}
+
+    <form class="sql" action="{{ database_url(database) }}{% if canned_query %}/{{ canned_query }}{% endif %}" method="get">
+        <h3 class="query-sql-title">PARÂMETROS DE CONSULTA{% if display_rows %} RETORNANDO {% if truncated %}MAIS DO QUE {% endif %}{{ "{:,}".format(display_rows|length) }} LINHA{% if display_rows|length == 1 %}{% else %}S{% endif %}{% endif %} <span class="show-hide-sql">{% if hide_sql %}(<a href="{{ path_with_removed_args(request, {'_hide_sql': '1'}) }}">mostrar consulta</a>){% else %}(<a href="{{ path_with_added_args(request, {'_hide_sql': '1'}) }}">esconder consulta</a>){% endif %}</span></h3>
+        {% if not hide_sql %}
+            {% if editable and config.allow_sql %}
+                <p class="query-sql"><textarea id="sql-editor" name="sql">{% if query and query.sql %}{{ query.sql }}{% else %}select * from {{ tables[0].name|escape_sqlite }}{% endif %}</textarea></p>
+            {% else %}
+                <pre>{% if query %}{{ query.sql }}{% endif %}</pre>
+            {% endif %}
+        {% else %}
+            <input type="hidden" name="sql" value="{% if query and query.sql %}{{ query.sql }}{% else %}select * from {{ tables[0].name|escape_sqlite }}{% endif %}">
+            <input type="hidden" name="_hide_sql" value="1">
+        {% endif %}
+        {% if named_parameter_values %}
+            <h3>Parâmetros de consulta</h3>
+            {% for name, value in named_parameter_values.items() %}
+                <p><label for="qp{{ loop.index }}">{{ name }}</label> <input type="text" id="qp{{ loop.index }}" name="{{ name }}" value="{{ value }}"></p>
+            {% endfor %}
+        {% endif %}
+        <p><input class="sql-button" type="submit" value="Rodar SQL"></p>
+    </form>
+
+    {% if display_rows %}
+      <p class="export-links query-export">Baixe estes dados como {% for name, url in renderers.items() %}<a target="_blank" href="{{ url }}">{{ name }}</a>{{ ", " if not loop.last }}{% endfor %}, <a target="_blank" href="{{ url_csv }}">CSV</a></p>
+        <div class="table-size">
+            <table class="table">
+                <thead style="border-top: 1px solid black;">
+                    <tr>
+                        {% for column in columns %}<th class="col-{{ column|to_css_class }}" scope="col">{{ column }}</th>{% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                {% for row in display_rows %}
+                    <tr class="tr-color">
+                        {% for column, td in zip(columns, row) %}
+                            <td class="col-{{ column|to_css_class }}">{% if td == None %}{{ "&nbsp;"|safe }}{% else %}{{ td }}{% endif %}</td>
+                        {% endfor %}
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    {% endif %}
+
+    {% include "_codemirror_foot.html" %}
+</div>
+{% endblock %}

@@ -1,0 +1,389 @@
+{
+	"title": "Dados das matérias do Núcleo",
+	"description": "Este repositório possui diversos bancos de dados com bases trabalhadas pela equipe de dados do Núcleo, a fim de facilitar consultas e transparência de informações",
+	"databases": {
+	    "amazonia_protege": {
+			"title": "Amazônia Protege",
+	      	"description": "Dados do site Amazônia Protege, do Ministério Público Federal",
+	      	"source": "Site do MPF",
+	     	"source_url": "http://www.amazoniaprotege.mpf.mp.br/",
+	     	"last_update": "11/10/2019",
+	     	"related_content": "Os protetores do Amazônia Protege",
+	     	"related_content_url": "https://vortex.media/politica/4067/os-protetores-do-amazonia-protege/",
+			"tables": {
+				"car": {
+					"title": "Cadastro Ambiental Rural",
+					"source": "",
+					"source_url": ""
+					},
+				"embargo": {
+					"title": "Embargos Ambientais",
+						"source": "",
+					"source_url": ""
+					},
+				"lista_idprodes": {
+					"title": "Identificação Prodes",
+					"source": "",
+					"source_url": ""
+					},
+				"terra_legal": {
+					"title": "Terra Legal",
+					"source": "",
+					"source_url": ""
+				}
+			}
+	    },
+		"publicidade_secom": {
+			"title": "",
+		    "description": "",
+		    "source": "",
+		    "source_url": "",
+		    "last_update": "08/11/2019",
+		    "related_content": "Próximas a Bolsonaro, Record e SBT recebem mais verba da Presidência do que Globo",
+		    "related_content_url": "https://vortex.media/dados/16180/proximas-a-bolsonaro-record-e-sbt-recebem-mais-verba-do-governo-do-que-globo/",
+			"tables": {
+				"publicidade-secom": {
+					"title": "",
+					"source": "",
+					"source_url": ""
+				}
+			}
+	    },
+		"stm": {
+			"title": "",
+		    "description": "",
+		   	"source": "",
+		    "source_url": "",
+		    "last_update": "29/10/2019",
+		    "related_content": "",
+		    "related_content_url": "",
+			"tables": {
+				"stm": {
+					"title": "",
+					"source": "",
+					"source_url": ""
+				}
+			}
+	    },
+	    "cnpq": {
+			"title": "Dados CNPQ",
+	      	"description": "Dados sobre investimentos do CNPQ",
+	      	"source": "Mapa dos investimentos",
+	     	"source_url": "http://cnpq.br/web/guest/mapa-de-investimentos-novo",
+	     	"last_update": "12/09/2019",
+	     	"related_content": "",
+	     	"related_content_url": "",
+			"tables": {
+				"cnpq": {
+					"source": "",
+					"source_url": ""
+				}
+			}
+	    },
+	    "devedores_pgfn": {
+			"title": "Lista de devedores da PGFN",
+		    "description": "Lista de devedores acima de R$15 mi inscritos na Procuradoria Geral da Fazenda Nacional.",
+		    "source": "Devedores PGFN",
+		    "source_url": "https://www.listadevedores.pgfn.gov.br/",
+		    "last_update": "04/11/2019",
+		    "related_content": "Políticos eleitos devem R$ 1,1 bilhão ao governo federal",
+		    "related_content_url": "https://vortex.media/dados/25688/politicos-eleitos-devem-r-11-bilhao-ao-governo-federal/",
+			"tables": {
+				"devedores_pgfn_todos_acima_de_15mi": {
+					"title": "Agregada - devedores acima de R$15 mi",
+					"source": "",
+					"source_url": ""
+				},
+				"previdenciaria": {
+					"title": "Previdenciária",
+					"source": "",
+					"source_url": ""
+				},
+				"tributaria": {
+					"title": "Tributária",
+					"source": "",
+					"source_url": ""
+				}
+			}
+	    },
+	    "justica_em_numeros_cnj_2019": {
+	     	"title": "Justiça em números - 2019 | Vortex 2019",
+	     	"description": "Dados sobre o relatório de 2019 do Justiça em Números",
+	     	"source": "Conselho Nacional de Justiça",
+	     	"source_url": "http://www.cnj.jus.br/pesquisas-judiciarias/justicaemnumeros/2016-10-21-13-13-04/pj-justica-em-numeros/2013-01-04-19-13-21",
+			"last_update": "27/08/2019",
+			"related_content": "",
+			"related_content_url": "",
+			"tables": {
+				"Justica_Eleitoral": {
+					"title": "Justiça Eleitoral",
+					"source": "",
+					"source_url": ""
+				},
+				"Justica_Estadual": {
+					"title": "Justiça Estadual",
+					"source": "",
+					"source_url": ""
+				},
+				"Justica_do_Trabalho": {
+					"title": "Justiça do Trabalho",
+					"source": "",
+					"source_url": ""
+				},
+				"Referencia": {
+					"title": "Referência",
+					"source": "",
+					"source_url": ""
+				}
+			}
+	    },
+	    "bens_candidatos": {
+	     	"title": "Declaração de bens de candidatos em 2018",
+	     	"description": "O banco contém 2 tabelas (candidatos e declarações de bens) e 3 views (um join agregado e duas análises)",
+	     	"source": "TSE",
+	     	"source_url": "http://www.tse.jus.br/eleicoes/estatisticas/repositorio-de-dados-eleitorais-1/repositorio-de-dados-eleitorais",
+			"last_update": "12/09/2019",
+			"related_content": "",
+			"related_content_url": "",
+			"tables": {
+				"bens_candidatos": {
+					"title": "Bens de candidatos",
+					"source": "",
+					"source_url": ""
+				},
+				"candidatos": {
+					"title": "Candidatos",
+					"source": "",
+					"source_url": ""
+				}
+			}
+	    },
+	    "infracoes_ibama": {
+	     	"title": "Autuações ambientais do Ibama",
+	     	"description": "Multas aplicadas pelo Ibama nas últimas décadas",
+	     	"source": "Ibama",
+	     	"source_url": "https://servicos.ibama.gov.br/ctf/publico/areasembargadas/ConsultaPublicaAreasEmbargadas.php",
+			"last_update": "04/09/2019",
+			"related_content": "",
+			"related_content_url": "",
+			"tables": {
+				"infracoes_ibama": {
+					"title": "Infrações",
+					"source": "",
+					"source_url": ""
+				}
+			}
+	    },
+	    "empresas_partidos_dirigentes": {
+	     	"title": "",
+	     	"description": "",
+	     	"source": "",
+	     	"source_url": "",
+	     	"last_update": "22/11/2019",
+	     	"related_content": "Em 2 anos, partidos gastam ao menos R$ 10 milhões com empresas de seus próprios dirigentes",
+	     	"related_content_url": "https://vortex.media/dados/21619/em-2-anos-partidos-gastam-ao-menos-r-10-milhoes-com-empresas-de-seus-proprios-dirigentes/",
+			"tables": {
+				"empresas_partidos_dirigentes_2017": {
+					"title": "",
+					"source": "",
+					"source_url": ""
+				},
+				"empresas_partidos_dirigentes_2018": {
+					"title": "",
+					"source": "",
+					"source_url": ""
+				}
+			}
+	    },
+	    "lista_estatais": {
+	    	"title": "lista contendo o CNPJ e o nome das empresas estatais utilizadas pelo Departamento de Estatísticas (DSTAT) do Banco Central do Brasil na compilação das estatísticas fiscais. A lista elaborada pelo DSTAT possui fins exclusivamente estatísticos.",
+	     	"description": "Banco xyz",
+	     	"source": "Departamento de Estatísticas (DSTAT) do Banco Central do Brasil / Solicitação de dados Vortex via LAI",
+	     	"source_url": "https://www.bcb.gov.br/",
+	     	"last_update": " ",
+	     	"related_content": "",
+	     	"related_content_url": ""
+	    },
+	    "projeto4g": {
+	     	"title": "Antenas 4G no Brasil",
+	     	"description": "Banco de dados organizado pelo Vortex sobre detalhes e localização de ERBs no Brasil, assim como qualidade de serviço apurada pela Anatel",
+	     	"source": "Anatel",
+	     	"source_url": "https://www.anatel.gov.br/dados/",
+	     	"last_update": " ",
+	     	"related_content": "",
+	     	"related_content_url": ""
+	    },
+	    "receitas_eleitorais_bolsonaro": {
+	     	"title": "Receitas eleitorais de Jair Bolsonaro em 2018",
+	     	"description": "Relação de receitas eleitorais de Bolsonaro para as eleições de 2018",
+	     	"source": "Levantamento do Vortex com base em dados do TSE",
+	     	"source_url": "http://divulgacandcontas.tse.jus.br/divulga/#/",
+	     	"last_update": " ",
+	     	"related_content": "",
+	     	"related_content_url": ""
+	    },
+	    "obras_pac": {
+	     	"title": "Obras do PAC - investimentos abaixo de R$10 mi",
+	     	"description": "Relação de obras do PAC com investimentos abaixo de R$10 milhões, assim como seu percentual de execução (ref. agosto 2019)",
+	     	"source": "Portal do Pac/Com classificação do Vortex",
+	     	"source_url": "http://www.pac.gov.br/",
+	     	"last_update": "24/10/2019",
+	     	"related_content": "",
+	     	"related_content_url": "",
+			"tables": {
+				"obras_pac": {
+					"source": "",
+					"source_url": ""
+				}
+			}
+	    },
+	    "acordaos_tcu": {
+	      "title": "Base de acórdãos do TCU",
+	      "description": "Base com 4G de acórdãos do Tribunal de Contas da União, coletada diretamente do site da entidade e publicada abertamente no Kaggle, com código no GitHub. Estes dizem respeito aos acórdãos proferidos pelo TCU entre os anos de 1992 até 30/08/2019.",
+	      "source": "TCU/@netoferraz",
+	      "source_url": "https://github.com/netoferraz/acordaos-tcu",
+	      "last_update": " ",
+	      "related_content": "",
+	      "related_content_url": ""
+	    },
+	    "gastos_bolsonaro": {
+	      "title": "Gastos públicos de Bolsonaros",
+	      "description": "Todos os gastos de gabinete de Jair Bolsonaro e Eduardo Bolsonaro de 2001 a 03/09/2019.",
+	      "source": "API da Câmara/LAI para gastos anteriores a 2009",
+	      "source_url": "https://dadosabertos.camara.leg.br/",
+	      "last_update": " ",
+	      "related_content": "",
+	      "related_content_url": ""
+	    },
+		"politicos_inscritos_pgfn": {
+		"title": "Políticos Inscritos em Dívida Ativa da União | Vortex 2019",
+		"description": "Dados com análises do Vortex, a partir de lista da Procuradoria Geral da Fazenda Nacional (PGFN), sobre políticos inscritos em dívida ativa da união. A base dessa análise é novembro/2019.",
+		"source": "Procuradoria Geral da Fazenda Nacional (PGFN)",
+		"source_url": "https://www.pgfn.gov.br/acesso-a-informacao/dados-abertos",
+		"last_update": "03/12/2019",
+		"related_content": "",
+		"related_content_url": "",
+			"tables": {
+				"cruzamento_agregado": {
+					"title": "Dados agregados sobre dívidas inscritas de políticos",
+					"source": "",
+					"source_url": ""
+				},
+				"cruzamento_total": {
+					"title": "Dados desagregados sobre dívidas inscritas de políticos",
+					"source": "",
+					"source_url": ""
+				}
+			}
+	    },
+	    "prestacao_contas_partidarias": {
+	      "title": "Prestação de contas patidárias",
+	      "description": "Dados sobre contas partidárias de 2017 e 2018, organizadas por receitas e despesas",
+	      "source": "Respositório de dados - TSE",
+	      "source_url": "http://www.tse.jus.br/hotsites/pesquisas-eleitorais/partidos-politicos.html",
+	      "last_update": "31/10/2019",
+	      "related_content": "Os dados e documentos que mostram que o PSL pagou por serviços para campanha de Bolsonaro em 2018",
+	      "related_content_url": "https://vortex.media/dados/7766/os-dados-e-documentos-que-mostram-que-o-psl-pagou-por-servicos-para-campanha-de-bolsonaro-em-2018/",
+			"tables": {
+				"despesa_anual_2017_brasil": {
+					"title": "Despesas - 2017",
+					"source": "",
+					"source_url": ""
+				},
+				"despesa_anual_2018_brasil": {
+					"title": "Despesas - 2018",
+					"source": "",
+					"source_url": ""
+				},
+				"receita_anual_2017_brasil": {
+					"title": "Receita - 2017",
+					"source": "",
+					"source_url": ""
+				},
+				"receita_anual_2018_brasil": {
+					"title": "Receita - 2018",
+					"source": "",
+					"source_url": ""
+				}
+			}
+	    },
+	    "desmatamento-prodes-2019": {
+	     	"title": "",
+	     	"description": "",
+	     	"source": "",
+	     	"source_url": "",
+	     	"last_update": "20/11/2019",
+	     	"related_content": "Desmatamento em áreas protegidas da Amazônia atinge o maior nível em uma década",
+	     	"related_content_url": "https://vortex.media/dados/21040/desmatamento-em-areas-protegidas-da-amazonia-atinge-o-maior-nivel-em-uma-decada/",
+			"tables": {
+				"intersect_2019_desmatamento": {
+					"title": "",
+					"source": "",
+					"source_url": ""
+				},
+				"intersect_todoperiodo_desmatamento": {
+					"title": "",
+					"source": "",
+					"source_url": ""
+				},
+				"mosaicos_2019_desmatamento": {
+					"title": "",
+					"source": "",
+					"source_url": ""
+				},
+				"mosaicos_todoperiodo_desmatamento": {
+					"title": "",
+					"source": "",
+					"source_url": ""
+				}
+			}
+	    },
+	    "contratos_dnit": {
+	     	"title": "Contratos do DNIT",
+	     	"description": "Contratos do Departamento Nacional de Infraestrutura de Transportes (DNIT) de 2014 a 2018.",
+	     	"source": "Portal da Transparência",
+	     	"source_url": "http://transparencia.gov.br/orgaos/39252-departamento-nacional-de-infraestrutura-de-transportes",
+	     	"last_update": " ",
+	     	"related_content": "",
+	     	"related_content_url": ""
+	    },
+	    "emendas_reforma_previdencia": {
+	     	"title": "Emendas à PEC da reforma da Previdência",
+	     	"description": "Dados compilados pelo Vortex nos sites do Senado e da Câmara dos Deputados com as emendas à reforma da Previdência",
+	     	"source": "Câmara",
+	     	"source_url": "https://www.camara.leg.br/proposicoesWeb/prop_emendas;jsessionid=96187B384E8BA38650F468ADD500A4E2.proposicoesWebExterno2?idProposicao=2192459&subst=0",
+			"last_update": "24/10/2019",
+			"related_content": "Congresso aprovou 16% das 891 emendas feitas à reforma da Previdência",
+			"related_content_url": "https://vortex.media/dados/10519/congresso-propos-891-emendas-a-reforma-da-previdencia-apenas-16-foram-adiante/",
+			"tables": {
+				"autores_emendas_camara": {
+					"source": "",
+					"source_url": ""
+				},
+				"emendas_camara": {
+					"source": "",
+					"source_url": ""
+				},
+				"emendas_senado": {
+					"source": "",
+					"source_url": ""
+				}
+			}
+		},
+		"remuneracao_do_pessoal_de_gabinete": {
+			"title": "",
+		    "description": "",
+		  	"source": " ",
+		    "source_url": " ",
+		    "last_update": "29/10/2019",
+		    "related_content": "",
+		    "related_content_url": "",
+			"tables": {
+				"remuneracao_do_pessoal_de_gabinete": {
+					"source": "",
+					"source_url": ""
+				}
+			}
+	    }
+  	}
+}

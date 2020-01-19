@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+	<head>
+	    <title>Dados das mat&eacute;rias do N&uacute;cleo</title>
+	    <meta charset="utf-8">
+  		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    	<meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
+    	<meta name="viewport" content="width=device-width" />
+
+		<link rel="shortcut icon" href="https://nucleo.jor.br/img/favicon.ico" type="image/x-icon">
+    	<link rel="icon" href="https://nucleo.jor.br/img/favicon.ico" type="image/x-icon">
+
+	    <link rel="stylesheet" href="https://nucleo.jor.br/css/datasette/app.css">
+	    <link rel="stylesheet" href="https://nucleo.jor.br/css/datasette/bootstrap_datasette.css">
+
+	    <meta name="keywords" content="jornalismo, jornalismo de dados, análise de dados, transparêcia pública, políticas públicas, gastos públicos"/>
+	    <meta property="og:site_name" content="Núcleo Jornalismo">
+	    <meta property="og:title" content="Núcleo Jornalismo" />
+	    <meta property="og:description" content="Investigações sobre debates, gastos públicos e políticas públicas" />
+	    <meta property="og:url" content="https://nucleo.jor.br" />
+
+		<!-- FACEBOOK -->
+	    <meta property="og:image" content="https://nucleo.jor.br/img/bases-nucleo-01.png" />
+	    <meta property="og:image:type" content="image/jpg" />
+	    <meta property="og:image:width" content="1200" />
+	    <meta property="og:image:height" content="630" />
+
+	    <!-- Whatsapp -->
+	    <meta property="og:image" content="https://nucleo.jor.br/img/bases-nucleo-01.png" />
+	    <meta property="og:image:type" content="image/jpg" />
+	    <meta property="og:image:width" content="300" />
+	    <meta property="og:image:height" content="300" />
+
+	    <!-- Twitter -->
+	    <meta name="twitter:card" content="summary" />
+	    <meta name="twitter:site" content="@nucleojor" />
+	    <meta name="twitter:creator" content="@nucleojor" />
+
+	    <!-- Global site tag (gtag.js) - Google Analytics -->
+	    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-104963816-3"></script>
+	    <script>
+	      window.dataLayer = window.dataLayer || [];
+	      function gtag(){dataLayer.push(arguments);}
+	      gtag('js', new Date());
+
+	      gtag('config', 'UA-104963816-3');
+	    </script>
+
+	{% for url in extra_css_urls %}
+	    <link rel="stylesheet" href="{{ url.url }}"{% if url.sri %} integrity="{{ url.sri }}" crossorigin="anonymous"{% endif %}>
+	{% endfor %}
+	{% for url in extra_js_urls %}
+	    <script src="{{ url.url }}"{% if url.sri %} integrity="{{ url.sri }}" crossorigin="anonymous"{% endif %}></script>
+	{% endfor %}
+		{% block extra_head %}{% endblock %}
+	</head>
+	<div style="margin-top: 1.7vh">
+		<a href="/"><img class="image" src="https://nucleo.jor.br/img/landing-nucleo_logo-header.png"></a>
+		<br>
+		<hr style="border: 2px solid #80808059;margin-top: 2.5vh;">
+	</div>
+	<body class="{% block body_class %}{% endblock %}">
+
+	<nav class="hd">{% block nav %}{% endblock %}</nav>
+
+	<div class="main">
+		<div class="bd">
+			{% block content %}{% endblock %}
+		</div>
+	</div>
+
+<footer>
+	<div class="footer">
+		{% block footer %}{% include "_footer.html" %}{% endblock %}
+	</div>
+</footer>
+	{% for body_script in body_scripts %}
+	    <script>{{ body_script }}</script>
+	{% endfor %}
+
+	{% if select_templates %}<!-- Templates considered: {{ select_templates|join(", ") }} -->{% endif %}
+	</body>
+</html>

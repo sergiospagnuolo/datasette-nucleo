@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block title %}{{ database }}{% endblock %}
+
+{% block extra_head %}
+{{ super() }}
+{% include "_codemirror.html" %}
+{% endblock %}
+
+{% block body_class %}db db-{{ database|to_css_class }}{% endblock %}
+
+{% block nav %}
+    <p class="bases">
+        <a href="/">home</a>
+    </p>
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+
+<img class="img-database" src="https://nucleo.jor.br/img/landing-nucleo_logo-justo.png">
+
+<div class="bases">
+    <h1 class="database-title">{{ metadata.title or database }}</h1>
+
+    {% block description_source_license %}{% include "_description_source_license.html" %}{% endblock %}
+
+    {% if config.allow_sql %}
+        <div class="row">
+            <form class="sql" action="{{ database_url(database) }}" method="get">
+                <h4 style="padding-top: 1rem;" class="database-consult">CONSULTA CUSTOMIZADA DE SQL</h4>
+                <textarea class="database-sql" name="sql">{% if tables %}select * from {{ tables[0].name|escape_sqlite }}{% else %}select sqlite_version(){% endif %}</textarea>
+                <input style="margin-left: 10px;" class="sql-button database-description" type="submit" value="Rodar SQL">
+            </form>
+        </div>
+    {% endif %}
+    <div style="overflow-x: scroll; margin-top: 5vh;">
+        <table style="border: transparent;" class="table">
+            <thead>
+                <tr>
+                    <th style="border: transparent; color: black;text-align: left;" class="col"><span class="th-database">NOME DA TABELA</span></th>
+                    <th style="border: transparent; color: black;text-align: left;" class="col"><span class="ml-2 th-database">VARIÁVEIS</span></th>
+                    <th style="border: transparent; color: black;text-align: center;" class="col"><span class="th-database">Nº DE LINHAS</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="border: transparent;" colspan="3"><hr style="border: 3px solid #4b31dd"></td>
+                </tr>
+    {% for table in tables %}
+    {% if show_hidden or not table.hidden %}
+                <tr style="border: transparent;">
+                        <td class="td-database-name" style="border: transparent;"><h2 style="white-space: nowrap;"><img src="https://nucleo.jor.br/img/layout-datasette%20copy-05-01.svg" style="width: auto; max-width: 2.5rem;"><a href="{{ database_url(database) }}/{{ table.name|quote_plus }}"> {{ table.name }}{% if table.hidden %}<em> (hidden)</em>{% endif %}</a></h2></td>
+    
+                        <td class="td-database-variables" style="border: transparent;text-align: left !important"><p class="ml-2">{% for column in table.columns[:9] %}{{ column }}{% if not loop.last %}, {% endif %}{% endfor %}</p></td>
+
+                        <td class="td-database-lines" style="border: transparent;text-align: center;"><p>{% if table.count is none %}Erro ao contar linhas{% else %}{{ "{:,}".format(table.count) }} linha{% if table.count == 1 %}{% else %}s{% endif %}{% endif %}</p></td>
+                </tr>
+                <tr>
+                    <td style="border: transparent;" colspan="3"><hr style="border: 1px solid #80808059"></td>
+                </tr>
+{% endif %}
+{% endfor %}
+            </tbody>
+        </table>
+    </div>
+<div style="margin-top: 2vh;margin-left: 2vw;">
+    {% if views %}
+        <h2 class="database-footer">Views</h2>
+        <ul class="database-footer">
+            {% for view in views %}
+                <li><a href="{{ database_url(database) }}/{{ view|urlencode }}">{{ view }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if queries %}
+        <h2 class="database-footer">Queries</h2>
+        <ul class="database-footer">
+            {% for query in queries %}
+                <li><a href="{{ database_url(database) }}/{{ query.name|urlencode }}" title="{{ query.description or query.sql }}">{{ query.title or query.name }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+    {% if allow_download %}
+        <p class="download-sqlite database-footer">Download SQLite DB: <a href="{{ database_url(database) }}.db">{{ database }}.db</a> <em>{{ format_bytes(size) }}</em></p>
+    {% endif %}
+
+    {% include "_codemirror_foot.html" %}
+</div>
+{% endblock %}

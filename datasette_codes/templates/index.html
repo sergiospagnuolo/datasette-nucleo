@@ -1,0 +1,159 @@
+{% extends "base.html" %}
+
+{% block title %}{{ metadata.title or "Datasette" }}: {% for database in databases %}{{ database.name }}{% if not loop.last %}, {% endif %}{% endfor %}{% endblock %}
+
+{% block body_class %}index{% endblock %}
+
+{% block content %}
+<div class="row">
+	<div class="col-sm-3"></div>
+	<div class="col-sm-6">
+	<center>
+		<div class="logo">
+		    <h1>{{ metadata.title or "Núcleo" }}</h1>
+		</div>
+
+		<img class="img-index" src="https://nucleo.jor.br/img/landing-nucleo_logo-justo.png">
+
+		<div class="motto">
+			{% block description_source_license %}{% include "_description_source_license.html" %}{% endblock %}
+		</div>
+	</center>
+	</div>
+	<div class="col-sm-3"></div>
+</div>
+
+<div class="bases">
+	<div id="search-all-wrapper">
+		<form id="search-all-fts" onsubmit="return searchAllFTS()">
+			<center>
+				<input id="search-all-fts-text" type="text" placeholder="BUSQUE POR TERMOS">
+			</center>
+		</form>
+		<br>
+		<div id="search-results-wrapper"></div>
+	</div>
+	<br>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		var searchFTSForm = document.getElementById("search-all-fts");
+		function searchAllFTS() {
+			var has_result = 0
+			var searchText = document.getElementById("search-all-fts-text").value;
+			if(searchText==='' || searchText===null || searchText.length<=0) return false;
+			
+			var resultsWrapper = $("#search-results-wrapper");
+			resultsWrapper.html('');
+			$.getJSON("-/databases.json",function(arrayOfDatabaseObjects){
+				for (var i = arrayOfDatabaseObjects.length - 1; i >= 0; i--) {
+					let dbName = arrayOfDatabaseObjects[i]["name"]; 
+					var dbNameJSONPath = '/'+dbName+".json";
+
+					$.getJSON(dbNameJSONPath,function(dbObj){
+						var ftsEnabledtables = [];
+						var arrayOfTableObjects = dbObj["tables"];
+						
+						for (var j = arrayOfTableObjects.length - 1; j >= 0; j--) {
+							var tblObj = arrayOfTableObjects[j];
+							var tblName = tblObj["name"];
+							var tblIsFTSEnabled = tblName.endsWith("_fts");
+							if (tblIsFTSEnabled) ftsEnabledtables.push(tblName.replace("_fts",''));
+						}
+						
+						
+						for (var j = ftsEnabledtables.length - 1; j >= 0; j--) {
+							let table = ftsEnabledtables[j];
+							let ftsSearchPath = '/'+dbName+'/'+table+".json?_search="+searchText;
+							
+							$.getJSON(ftsSearchPath, function(searchResultObj){
+								var numberOfSearchResults = searchResultObj["filtered_table_rows_count"];
+								var searchReturnedResults = numberOfSearchResults > 0;
+
+								if (searchReturnedResults) {
+									has_result++;
+									var searchResultsPath = ftsSearchPath.replace(".json",'');
+									var searchResultText = numberOfSearchResults.toString()+" resultado(s) encontrado(s) em <a href=\""+searchResultsPath+"\" target=\"_blank\">"+dbName+'/'+table+"</a>";
+									var p = $("<p></p>");
+									p.html(searchResultText);
+									resultsWrapper.append(p);
+								}
+							});
+						}
+					});
+				}
+			});
+			/*if (has_result==0) {
+					var p = $("<p></p>");
+					p.html("Nenhum resultado encontrado");
+					resultsWrapper.append(p);
+			}*/
+			return false;
+		}
+	</script>
+
+	<div style="overflow-x: scroll">
+		<table style="border: transparent;" class="table">
+			<thead>
+				<tr>
+					<th style="border: transparent; color: black;text-align: left;" class="col"><span class="th-index">NOME DA BASE</span></th>
+					<th style="border: transparent; color: black;text-align: left;" class="col"><span class="th-index ml-2">CONTEÚDO RELACIONADO</span></th>
+					<th style="border: transparent; color: black;text-align: center;" class="col"><span class="th-index">ATUALIZAÇÃO</span></th>
+					<th style="border: transparent; color: black;text-align: center;" class="col"><span class="th-index">FONTE</span></th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td style="border: transparent;" colspan="4"><hr style="border: 3px solid #4b31dd"></td>
+				</tr>
+		{% for database in databases %}
+				<tr style="border: transparent;">
+                    <td class="td-index-name" style="border: transparent;"><h2 style="white-space: nowrap;"><img src="https://nucleo.jor.br/img/layout-datasette%20copy-05-01.svg" style="width: auto; max-width: 2.5rem;"><a href="{{ database.path }}"> {{ database.name }}{% if database.hidden_tables_count %}*{% endif %}</a></h2></td>
+                    <td style="border: transparent;">
+                   		<p class="td-index-content ml-2" id="content_{{ database.name }}">
+                   			<script>
+								var dynamicUrl = '/-/metadata.json';
+								$.getJSON(dynamicUrl, function(data) {
+									let str = "{{ database.name }}";
+									let res = str.toString();
+									document.getElementById("content_{{ database.name }}").innerHTML = "<a href=\""+(data.databases[res].related_content_url)+"\" target=\"_blank\">"+(data.databases[res].related_content)+"</a>";
+								});
+							</script>
+						</p>
+                    </td>
+                   	<td style="border: transparent;">
+                   		<p class="td-index-update" id="update_{{ database.name }}">
+                   			<script>
+								var dynamicUrl = '/-/metadata.json';
+								$.getJSON(dynamicUrl, function(data) {
+									let str = "{{ database.name }}";
+									let res = str.toString();
+									document.getElementById("update_{{ database.name }}").innerHTML = (data.databases[res].last_update);
+								});
+							</script>
+						</p>
+                   	</td>
+                   	<td style="border: transparent;">
+                   		<p class="td-index-structure" id="structure_{{ database.name }}">
+                   			<script>
+								var dynamicUrl = '/-/metadata.json';
+								$.getJSON(dynamicUrl, function(data) {
+									let str = "{{ database.name }}";
+									let res = str.toString();
+									document.getElementById("structure_{{ database.name }}").innerHTML = "<a href=\""+(data.databases[res].source_url)+"\" target=\"_blank\">"+(data.databases[res].source)+"</a>";
+								});
+							</script>
+						</p>
+					</td>
+				</tr>
+				<tr>
+					<td style="border: transparent;" colspan="4"><hr style="border: 1px solid #80808059"></td>
+				</tr>
+		{% endfor %}
+			</tbody>
+		</table>
+	</div>
+	<div style="margin-top: 2%; margin-left: 2vw;">
+		<h2><b>* tabelas que possuem busca textual</b></h2>
+	</div>
+	{% endblock %}
+</div>

@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block extra_head %}
+{{ super() }}
+{% include "_codemirror.html" %}
+{% endblock %}
+
+{% block title %}{% if title %}{{ title }}{% else %}Error {{ status }}{% endif %}{% endblock %}
+
+{% block nav %}
+	<p class="bases">
+        <a href="/">home</a>
+	</p>
+	{{ super() }}
+{% endblock %}
+
+	{% block content %}
+<div class="bases">
+	<h1>{% if title %}{{ title }}{% else %}Error {{ status }}{% endif %}</h1>
+	<div style="padding: 1em; margin: 1em 1em; border: 3px solid #ADBD30;">{{ error }}</div>
+</div>
+{% endblock %}
