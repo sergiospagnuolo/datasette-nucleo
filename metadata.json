@@ -8,8 +8,8 @@
 	      	"source": "Site do MPF",
 	     	"source_url": "http://www.amazoniaprotege.mpf.mp.br/",
 	     	"last_update": "11/10/2019",
-	     	"related_content": "Os protetores do Amazônia Protege",
-	     	"related_content_url": "https://vortex.media/politica/4067/os-protetores-do-amazonia-protege/",
+	     	"related_content": "",
+	     	"related_content_url": "",
 			"tables": {
 				"car": {
 					"title": "Cadastro Ambiental Rural",
@@ -39,8 +39,8 @@
 		    "source": "",
 		    "source_url": "",
 		    "last_update": "08/11/2019",
-		    "related_content": "Próximas a Bolsonaro, Record e SBT recebem mais verba da Presidência do que Globo",
-		    "related_content_url": "https://vortex.media/dados/16180/proximas-a-bolsonaro-record-e-sbt-recebem-mais-verba-do-governo-do-que-globo/",
+		    "related_content": "",
+		    "related_content_url": "",
 			"tables": {
 				"publicidade-secom": {
 					"title": "",
@@ -86,8 +86,8 @@
 		    "source": "Devedores PGFN",
 		    "source_url": "https://www.listadevedores.pgfn.gov.br/",
 		    "last_update": "04/11/2019",
-		    "related_content": "Políticos eleitos devem R$ 1,1 bilhão ao governo federal",
-		    "related_content_url": "https://vortex.media/dados/25688/politicos-eleitos-devem-r-11-bilhao-ao-governo-federal/",
+		    "related_content": "",
+		    "related_content_url": "",
 			"tables": {
 				"devedores_pgfn_todos_acima_de_15mi": {
 					"title": "Agregada - devedores acima de R$15 mi",
@@ -180,8 +180,8 @@
 	     	"source": "",
 	     	"source_url": "",
 	     	"last_update": "22/11/2019",
-	     	"related_content": "Em 2 anos, partidos gastam ao menos R$ 10 milhões com empresas de seus próprios dirigentes",
-	     	"related_content_url": "https://vortex.media/dados/21619/em-2-anos-partidos-gastam-ao-menos-r-10-milhoes-com-empresas-de-seus-proprios-dirigentes/",
+	     	"related_content": "",
+	     	"related_content_url": "",
 			"tables": {
 				"empresas_partidos_dirigentes_2017": {
 					"title": "",
@@ -196,9 +196,9 @@
 			}
 	    },
 	    "lista_estatais": {
-	    	"title": "lista contendo o CNPJ e o nome das empresas estatais utilizadas pelo Departamento de Estatísticas (DSTAT) do Banco Central do Brasil na compilação das estatísticas fiscais. A lista elaborada pelo DSTAT possui fins exclusivamente estatísticos.",
-	     	"description": "Banco xyz",
-	     	"source": "Departamento de Estatísticas (DSTAT) do Banco Central do Brasil / Solicitação de dados Vortex via LAI",
+	    	"title": "Lista de estatais brasileiras",
+	     	"description": "Lista contendo o CNPJ e o nome das empresas estatais utilizadas pelo Departamento de Estatísticas (DSTAT) do Banco Central do Brasil na compilação das estatísticas fiscais. A lista elaborada pelo DSTAT possui fins exclusivamente estatísticos.",
+	     	"source": "Departamento de Estatísticas (DSTAT) do Banco Central do Brasil / Solicitação de dados do veículo Vortex via LAI",
 	     	"source_url": "https://www.bcb.gov.br/",
 	     	"last_update": " ",
 	     	"related_content": "",
@@ -206,7 +206,7 @@
 	    },
 	    "projeto4g": {
 	     	"title": "Antenas 4G no Brasil",
-	     	"description": "Banco de dados organizado pelo Vortex sobre detalhes e localização de ERBs no Brasil, assim como qualidade de serviço apurada pela Anatel",
+	     	"description": "Banco de dados sobre detalhes e localização de ERBs no Brasil, assim como qualidade de serviço apurada pela Anatel",
 	     	"source": "Anatel",
 	     	"source_url": "https://www.anatel.gov.br/dados/",
 	     	"last_update": " ",
@@ -216,26 +216,11 @@
 	    "receitas_eleitorais_bolsonaro": {
 	     	"title": "Receitas eleitorais de Jair Bolsonaro em 2018",
 	     	"description": "Relação de receitas eleitorais de Bolsonaro para as eleições de 2018",
-	     	"source": "Levantamento do Vortex com base em dados do TSE",
+	     	"source": "Levantamento com base em dados do TSE",
 	     	"source_url": "http://divulgacandcontas.tse.jus.br/divulga/#/",
 	     	"last_update": " ",
 	     	"related_content": "",
 	     	"related_content_url": ""
-	    },
-	    "obras_pac": {
-	     	"title": "Obras do PAC - investimentos abaixo de R$10 mi",
-	     	"description": "Relação de obras do PAC com investimentos abaixo de R$10 milhões, assim como seu percentual de execução (ref. agosto 2019)",
-	     	"source": "Portal do Pac/Com classificação do Vortex",
-	     	"source_url": "http://www.pac.gov.br/",
-	     	"last_update": "24/10/2019",
-	     	"related_content": "",
-	     	"related_content_url": "",
-			"tables": {
-				"obras_pac": {
-					"source": "",
-					"source_url": ""
-				}
-			}
 	    },
 	    "acordaos_tcu": {
 	      "title": "Base de acórdãos do TCU",
@@ -256,8 +241,8 @@
 	      "related_content_url": ""
 	    },
 		"politicos_inscritos_pgfn": {
-		"title": "Políticos Inscritos em Dívida Ativa da União | Vortex 2019",
-		"description": "Dados com análises do Vortex, a partir de lista da Procuradoria Geral da Fazenda Nacional (PGFN), sobre políticos inscritos em dívida ativa da união. A base dessa análise é novembro/2019.",
+		"title": "Políticos Inscritos em Dívida Ativa da União",
+		"description": "Dados com análises a partir de lista da Procuradoria Geral da Fazenda Nacional (PGFN), sobre políticos inscritos em dívida ativa da união. A base dessa análise é novembro/2019.",
 		"source": "Procuradoria Geral da Fazenda Nacional (PGFN)",
 		"source_url": "https://www.pgfn.gov.br/acesso-a-informacao/dados-abertos",
 		"last_update": "03/12/2019",
@@ -276,45 +261,14 @@
 				}
 			}
 	    },
-	    "prestacao_contas_partidarias": {
-	      "title": "Prestação de contas patidárias",
-	      "description": "Dados sobre contas partidárias de 2017 e 2018, organizadas por receitas e despesas",
-	      "source": "Respositório de dados - TSE",
-	      "source_url": "http://www.tse.jus.br/hotsites/pesquisas-eleitorais/partidos-politicos.html",
-	      "last_update": "31/10/2019",
-	      "related_content": "Os dados e documentos que mostram que o PSL pagou por serviços para campanha de Bolsonaro em 2018",
-	      "related_content_url": "https://vortex.media/dados/7766/os-dados-e-documentos-que-mostram-que-o-psl-pagou-por-servicos-para-campanha-de-bolsonaro-em-2018/",
-			"tables": {
-				"despesa_anual_2017_brasil": {
-					"title": "Despesas - 2017",
-					"source": "",
-					"source_url": ""
-				},
-				"despesa_anual_2018_brasil": {
-					"title": "Despesas - 2018",
-					"source": "",
-					"source_url": ""
-				},
-				"receita_anual_2017_brasil": {
-					"title": "Receita - 2017",
-					"source": "",
-					"source_url": ""
-				},
-				"receita_anual_2018_brasil": {
-					"title": "Receita - 2018",
-					"source": "",
-					"source_url": ""
-				}
-			}
-	    },
 	    "desmatamento-prodes-2019": {
 	     	"title": "",
 	     	"description": "",
 	     	"source": "",
 	     	"source_url": "",
 	     	"last_update": "20/11/2019",
-	     	"related_content": "Desmatamento em áreas protegidas da Amazônia atinge o maior nível em uma década",
-	     	"related_content_url": "https://vortex.media/dados/21040/desmatamento-em-areas-protegidas-da-amazonia-atinge-o-maior-nivel-em-uma-decada/",
+	     	"related_content": "",
+	     	"related_content_url": "",
 			"tables": {
 				"intersect_2019_desmatamento": {
 					"title": "",
@@ -347,29 +301,6 @@
 	     	"related_content": "",
 	     	"related_content_url": ""
 	    },
-	    "emendas_reforma_previdencia": {
-	     	"title": "Emendas à PEC da reforma da Previdência",
-	     	"description": "Dados compilados pelo Vortex nos sites do Senado e da Câmara dos Deputados com as emendas à reforma da Previdência",
-	     	"source": "Câmara",
-	     	"source_url": "https://www.camara.leg.br/proposicoesWeb/prop_emendas;jsessionid=96187B384E8BA38650F468ADD500A4E2.proposicoesWebExterno2?idProposicao=2192459&subst=0",
-			"last_update": "24/10/2019",
-			"related_content": "Congresso aprovou 16% das 891 emendas feitas à reforma da Previdência",
-			"related_content_url": "https://vortex.media/dados/10519/congresso-propos-891-emendas-a-reforma-da-previdencia-apenas-16-foram-adiante/",
-			"tables": {
-				"autores_emendas_camara": {
-					"source": "",
-					"source_url": ""
-				},
-				"emendas_camara": {
-					"source": "",
-					"source_url": ""
-				},
-				"emendas_senado": {
-					"source": "",
-					"source_url": ""
-				}
-			}
-		},
 		"remuneracao_do_pessoal_de_gabinete": {
 			"title": "",
 		    "description": "",
